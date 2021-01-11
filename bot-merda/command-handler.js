@@ -60,19 +60,26 @@ export default class CommandHandler {
             const commandBody = message.content.slice(this.prefix.length);
             const args = commandBody.split(' ');
             const command = args.shift().toLowerCase();
-            if(command === "ping") {
-                this.ping(message);
-            } else if(command === "entra") {
-                await this.add(message);
-            } else if(command === "sai") {
-                this.remove(message);
-            } else if(command === "toca") {
-                if(args != null && args != undefined)
-                    this.add(message);
-                    this.play(args);
-            } else {
-                this.add(message);
-                const dispatcher = this.connection.play(__dirname + audios[command]);
+
+            switch(command){
+                case 'ping':
+                    this.ping(message);
+                    break;
+                case 'entra':
+                    await this.add(message);
+                    break;
+                case 'sai':
+                    this.remove(message);
+                    break;
+                case 'toca':
+                    if(args != null && args != undefined){
+                        this.add(message);
+                        this.play(args);
+                    }
+                    break;
+                default:
+                    await this.add(message);
+                    const dispatcher = this.connection.play(_dirname + audios[command]);           
             }
         } catch(e) {
             console.log(e.message);
