@@ -1,0 +1,19 @@
+{
+  "name": "bot-merda",
+  "version": "1.0.0",
+  "description": "Um bot merda pra usar no discord",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Filipim",
+  "license": "ISC",
+  "dependencies": {
+    "async-mutex": "^0.2.6",
+    "discord.js": "^12.5.1",
+    "ffmpeg-static": "^4.2.7",
+    "opusscript": "^0.0.7",
+    "ytdl-core": "^4.4.2"
+  }
+}
